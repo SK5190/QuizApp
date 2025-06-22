@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Quiz</title>
+    <!-- <script src="<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+<link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+
+<body class="bg-white min-h-screen flex items-center justify-center transition-colors dark:bg-black ">
+  <div class="absolute top-0 left-0 w-full h-full bg-indigo-50 dark:bg-gray-800 rounded-[70%] z-0"></div>
+    <div class="absolute top-0 left-0 w-[75%] h-full bg-white dark:bg-black rounded-[50%] z-0"></div>
+    
+   
+    <!-- Main Layout -->
+     <section class=" w-2/3   z-10  relative ">
+        <nav class=" flex w-full   max-w-7xl  items-end justify-end z-10  "> 
+        <label for="check" class=" relative flex items-center justify-between px-2 w-24 h-6  dark:hover:bg-purple-900 rounded-full cursor-pointer">
+        <!-- Sun Icon -->
+        <i class="ri-moon-line text-black dark:text-white text-xl mr-2"></i>
+ 
+        <!-- Hidden Checkbox -->
+        <input type="checkbox" id="check" class="sr-only peer ">
+
+        <span class=" w-1/6 h-4/6 bg-rose-300 absolute  rounded-full left-8 top-1 peer-checked:bg-rose-600 peer-checked:left-12 transition-all duration-500 "></span>
+      
+
+        <!-- Moon Icon -->
+       <i class="ri-sun-line text-black dark:text-white text-xl ml-2"></i>
+    </label></nav>
+    <div id="ap" class="justify-center items-center w-full min-h-[80vh] grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-10">
+
+
+      <!-- Greeting Section -->
+        <div class=" z-10 text-gray-900 text-center md:text-left dark:text-white space-y-4 ">
+            <h1 id="status" class="text-5xl font-light leading-snug">Welcome to the <br><span class="text-indigo-500 font-bold dark:text-purple-400">Frontend Quiz!</span></h1>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Pick a subject to get started.</p>
+        </div>
+
+        <!-- Quiz Options-->
+        <div class="z-10 flex flex-col gap-6  w-full ">
+
+         <!-- Quiz Categories -->
+            <div id="choose" class=" flex flex-col  gap-4 justify-end">
+
+                <a href="#html" id="hquiz" class="flex w-full items-center  gap-4 bg-white dark:bg-gray-700 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-900 dark:text-white text-lg font-medium py-3 px-6 rounded-xl transition">
+                    <img src="icon-html.svg" alt=""> HTML
+                </a>
+
+                <a href="#css" id="cquiz" class="flex items-center gap-4 bg-white dark:bg-gray-700 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-900 dark:text-white text-lg font-medium py-3 px-6 rounded-xl transition">
+                    <img src="icon-css.svg" alt=""> CSS
+                </a>
+
+                <a href="#js" id="jquiz" class="flex items-center gap-4 bg-white dark:bg-gray-700 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-900 dark:text-white text-lg font-medium py-3 px-6 rounded-xl transition">
+                    <img src="icon-js.svg" alt=""> JavaScript
+                </a>
+
+                <a href="#acc" id="aquiz" class="flex items-center gap-4 bg-white dark:bg-gray-700 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-900 dark:text-white text-lg font-medium py-3 px-6 rounded-xl transition">
+                    <img src="icon-accessibility.svg" alt=""> Accessibility
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+     </section>
+    
+    <!-- Dark Mode Script -->
+    <script>
+        const toggleButton = document.getElementById('check');
+        const html = document.documentElement;
+        const opt = document.getElementById('choose');
+  
+
+       
+   const htmlQuestions = [
+    {
+        question: "What does HTML stand for?",
+        options: [
+            "Hyper Text Markup Language",
+            "Home Tool Markup Language",
+            "Hyperlinks and Text Markup Language",
+            "Hyper Tool Multi Language"
+        ],
+        answer: "Hyper Text Markup Language"
+    },
+    {
+        question: "Which HTML tag is used to create a hyperlink?",
+        options: [
+            "&lt;a&gt;",
+            "&lt;link&gt;",
+            "&lt;href&gt;",
+            "&lt;hyperlink&gt;"
+        ],
+        answer: "&lt;a&gt;"
+    },
+    {
+        question: "Which HTML element is used to specify a header for a document?",
+        options: [
+            "&lt;header&gt;",
+            "&lt;head&gt;",
+            "&lt;h1&gt;",
+            "&lt;title&gt;"
+        ],
+        answer: "&lt;header&gt;"
+    },
+    {
+        question: "What is the correct HTML element for inserting a line break?",
+        options: [
+            "&lt;break&gt;",
+            "&lt;br&gt;",
+            "&lt;lb&gt;",
+            "&lt;hr&gt;"
+        ],
+        answer: "&lt;br&gt;"
+    },
+    {
+        question: "Which HTML attribute is used to define inline styles?",
+        options: [
+            "class",
+            "style",
+            "font",
+            "css"
+        ],
+        answer: "style"
+    },
+    {
+        question: "Which is the correct HTML element for the largest heading?",
+        options: [
+            "&lt;h6&gt;",
+            "&lt;head&gt;",
+            "&lt;h1&gt;",
+            "&lt;heading&gt;"
+        ],
+        answer: "&lt;h1&gt;"
+    },
+    {
+        question: "Which tag is used to display an image in HTML?",
+        options: [
+            "&lt;img&gt;",
+            "&lt;picture&gt;",
+            "&lt;image&gt;",
+            "&lt;src&gt;"
+        ],
+        answer: "&lt;img&gt;"
+    },
+    {
+        question: "Which attribute specifies the image source in the &lt;img&gt; tag?",
+        options: [
+            "href",
+            "src",
+            "alt",
+            "link"
+        ],
+        answer: "src"
+    },
+    {
+        question: "What does the 'alt' attribute provide in an image tag?",
+        options: [
+            "Image size",
+            "Alternative text",
+            "Image link",
+            "Image type"
+        ],
+        answer: "Alternative text"
+    },
+    {
+        question: "Which HTML element is used for creating an unordered list?",
+        options: [
+            "&lt;ul&gt;",
+            "&lt;ol&gt;",
+            "&lt;li&gt;",
+            "&lt;list&gt;"
+        ],
+        answer: "&lt;ul&gt;"
+    }
+];
+const cssQuestions = [
+    {
+        question: "What does CSS stand for?",
+        options: [
+            "Colorful Style Sheets",
+            "Cascading Style Sheets",
+            "Creative Style Sheets",
+            "Computer Style Sheets"
+        ],
+        answer: "Cascading Style Sheets"
+    },
+    {
+        question: "Which property is used to change the background color?",
+        options: [
+            "color",
+            "background-color",
+            "bgcolor",
+            "background"
+        ],
+        answer: "background-color"
+    },
+    {
+        question: "Which CSS property controls the text size?",
+        options: [
+            "font-style",
+            "text-size",
+            "font-size",
+            "text-style"
+        ],
+        answer: "font-size"
+    },
+    {
+        question: "How do you make text bold in CSS?",
+        options: [
+            "font-weight: bold;",
+            "style: bold;",
+            "font: bold;",
+            "text-style: bold;"
+        ],
+        answer: "font-weight: bold;"
+    },
+    {
+        question: "Which CSS property is used to change the text color?",
+        options: [
+            "fgcolor",
+            "color",
+            "text-color",
+            "font-color"
+        ],
+        answer: "color"
+    },
+    {
+        question: "Which property is used to add space inside the element’s border?",
+        options: [
+            "margin",
+            "padding",
+            "spacing",
+            "border-spacing"
+        ],
+        answer: "padding"
+    },
+    {
+        question: "What is the default position of an HTML element?",
+        options: [
+            "absolute",
+            "fixed",
+            "relative",
+            "static"
+        ],
+        answer: "static"
+    },
+    {
+        question: "Which CSS property is used to change the type of cursor displayed?",
+        options: [
+            "pointer",
+            "cursor",
+            "hover",
+            "display"
+        ],
+        answer: "cursor"
+    },
+    {
+        question: "Which CSS property is used to make a list horizontal?",
+        options: [
+            "list-style: none;",
+            "display: inline;",
+            "display: block;",
+            "float: left;"
+        ],
+        answer: "display: inline;"
+    },
+    {
+        question: "Which unit is relative to the font-size of the element?",
+        options: [
+            "em",
+            "px",
+            "cm",
+            "pt"
+        ],
+        answer: "em"
+    }
+];
+const jsQuestions = [
+    {
+        question: "What does JavaScript primarily do?",
+        options: [
+            "Style web pages",
+            "Add interactivity to web pages",
+            "Structure web pages",
+            "Store data"
+        ],
+        answer: "Add interactivity to web pages"
+    },
+    {
+        question: "Which of the following is a JavaScript data type?",
+        options: [
+            "String",
+            "Number",
+            "Boolean",
+            "All of the above"
+        ],
+        answer: "All of the above"
+    },
+    {
+        question: "What is the correct syntax for referring to an external script called 'script.js'?",
+        options: [
+            "&lt;script src='script.js'&gt;",
+            "&lt;script href='script.js'&gt;",
+            "&lt;script link='script.js'&gt;",
+            "&lt;script file='script.js'&gt;"
+        ],
+        answer: "&lt;script src='script.js'&gt;"
+    },
+    {
+        question: "How do you create a function in JavaScript?",
+        options: [
+            "function myFunction() {}",
+            "create myFunction() {}",
+            "function: myFunction() {}",
+            "myFunction() = function {}"
+        ],
+        answer: "function myFunction() {}"
+    },
+    {
+        question: "Which operator is used to assign a value to a variable in JavaScript?",
+        options: [
+            "=",
+            ":=",
+            "-=",
+            "+="
+        ],
+        answer: "="
+    },
+    {
+        question: "What is the output of console.log(typeof null)?",
+        options: [
+            "'object'",
+            "'null'",
+            "'undefined'",
+            "'number'"
+        ],
+        answer: "'object'"
+    },
+    {
+        question: "How do you declare a constant in JavaScript?",
+        options: [
+            "const myConst = 10;",
+            "constant myConst = 10;",
+            "let myConst = 10;",
+            "var myConst = 10;"
+        ],
+        answer: "const myConst = 10;"
+    },
+    {
+        question: "Which method is used to convert a string to an integer in JavaScript?",
+        options: [
+            "parseInt()",
+            "toInteger()",
+            "convertToInt()",
+            "int()"
+        ],
+        answer: "parseInt()"
+    },
+    {
+        question: "What does JSON stand for?",
+        options: [
+            "JavaScript Object Notation",
+            "JavaScript Online Notation",
+            "JavaScript Object Network",
+            "JavaScript Open Notation"
+        ],
+        answer: "JavaScript Object Notation"    
+    },
+    {
+        question: "Which of the following is a JavaScript framework?",
+        options: [
+            "React",
+            "Angular",
+            "Vue",
+            "All of the above"
+        ],
+        answer: "All of the above"
+    }
+];
+const accessibilityQuestions = [
+    {
+        question: "What does 'a11y' stand for in web development?",
+        options: [
+            "Accessibility",
+            "Authority",
+            "Allowance",
+            "Alignment"
+        ],
+        answer: "Accessibility"
+    },
+    {
+        question: "Which HTML element is used to provide alternative text for images?",
+        options: [
+            "alt attribute",
+            "title tag",
+            "aria-label attribute",
+            "label tag"
+        ],
+        answer: "alt attribute"
+    },
+    {
+        question: "What is the purpose of semantic HTML?",
+        options: [
+            "To style elements with CSS",
+            "To provide meaning and structure to content",
+            "To add animations",
+            "To store data in the browser"
+        ],
+        answer: "To provide meaning and structure to content"
+    },
+    {
+        question: "Which of the following improves screen reader accessibility?",
+        options: [
+            "Using divs for all content",
+            "Adding proper heading structure",
+            "Using images without alt text",
+            "Avoiding all labels in forms"
+        ],
+        answer: "Adding proper heading structure"
+    },
+    {
+        question: "What is the role of the 'aria-label' attribute?",
+        options: [
+            "To link a CSS file",
+            "To provide an accessible label for an element",
+            "To create hyperlinks",
+            "To insert images"
+        ],
+        answer: "To provide an accessible label for an element"
+    },
+    {
+        question: "Which color contrast ratio is recommended for text accessibility?",
+        options: [
+            "2:1",
+            "4.5:1",
+            "1:1",
+            "10:1"
+        ],
+        answer: "4.5:1"
+    },
+    {
+        question: "What is a screen reader?",
+        options: [
+            "A tool that enlarges screen content",
+            "A device that reads aloud content on the screen",
+            "A screen magnifier",
+            "A color adjustment tool"
+        ],
+        answer: "A device that reads aloud content on the screen"
+    },
+    {
+        question: "Which of the following helps keyboard navigation?",
+        options: [
+            "Tabindex attribute",
+            "Using only mouse events",
+            "Complex JavaScript animations",
+            "Hiding all focus indicators"
+        ],
+        answer: "Tabindex attribute"
+    },
+    {
+        question: "What does the 'role' attribute do in HTML?",
+        options: [
+            "Defines the CSS style",
+            "Describes the purpose of an element to assistive technologies",
+            "Adds JavaScript functionality",
+            "Changes the background color"
+        ],
+        answer: "Describes the purpose of an element to assistive technologies"
+    },
+    {
+        question: "Which of the following is important for form accessibility?",
+        options: [
+            "Using placeholders only",
+            "Using visible labels",
+            "Omitting labels for cleaner design",
+            "Using only icons without text"
+        ],
+        answer: "Using visible labels"
+    }
+];
+
+var count = 1;
+var score = 0;
+let questionIndex = 0;
+let usedQuestions = [];
+let selectedQuiz = null;
+
+var clutter = function(data){
+    // let get = Math.floor(Math.random()*10)
+    if (count <=5)
+    {
+
+         while (true) {
+            var get = Math.floor(Math.random() * data.length);
+            if (!usedQuestions.includes(get)) {
+                usedQuestions.push(get);
+                break;
+            }
+        }
+
+    var initial=
+    `<section class=" w-full   z-10  flex-col justify-center items center"> 
+    <div class="flex w-[100%] md:w-[200%] min-h-[80vh] pr-5  relative ">
+<div  class="justify-center items-center w-full min-h-[80vh] grid grid-cols-1 md:grid-cols-2 items-center gap-10 ">
+
+      
+
+        <!-- Greeting Section -->
+        <div class="z-10 text-gray-900 dark:text-white  space-y-4  ">
+            <h1 id='status' class="text-3xl text-center md:text-left font-light leading-snug">${data[get].question}</h1>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Question ${count} of 5</p>
+        </div>
+
+        <!-- Quiz Options and Toggle -->
+        <div class=" z-10 flex flex-col gap-6   min-w-[40%] py-3">
+
+
+            <!-- Quiz Categories -->
+            <div id="opt" class=" flex flex-col  gap-4">
+
+                <a href="#l"  class=" options flex   items-center  gap-4 bg-white dark:bg-gray-700 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-900 dark:text-white text-lg font-medium py-4 px-6 rounded-xl transition">
+                    A) ${data[get].options[0]}
+                </a>
+
+                <a href="#"  class=" options flex  items-center gap-4  bg-white dark:bg-gray-700 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-900 dark:text-white text-lg font-medium py-4 px-6 rounded-xl transition">
+                    B) ${data[get].options[1]}
+                </a>
+
+                <a href="#"  class="options flex  items-center gap-4  bg-white dark:bg-gray-700 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-900 dark:text-white text-lg font-medium py-4 px-6 rounded-xl transition">
+                    C) ${data[get].options[2]}
+                </a>
+
+                <a href="#"  class="options flex  items-center gap-4px-15  bg-white dark:bg-gray-700 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-900 dark:text-white text-lg font-medium py-4 px-6 rounded-xl transition">
+                    D) ${data[get].options[3]}
+                </a>
+                  <a href="#nxt" id="nxt" class="flex items-center justify-center gap-4 bg-white dark:bg-blue-700 shadow-lg hover:bg-blue-100 dark:hover:bg-blue-600 text-gray-900 dark:text-white text-lg font-medium py-4 px-6 rounded-xl transition">
+                    Next
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <section>`;
+
+    ap.innerHTML = initial;
+    flag = 0;
+    
+    const nxtBtn = document.getElementById('nxt');
+        nxtBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (flag == 0) {
+            alert("choose one option first!");
+            }
+            else{
+            count++;
+            clutter(selectedQuiz); // Load next question
+            flag = 0;
+            }
+        });
+        // const status = document.getElementById('status');
+        // let options = document.querySelectorAll('.options');
+
+       
+      const status = document.getElementById('status');
+    
+  let options = document.querySelectorAll('.options');
+        let previousSelected = null; // Variable to track previous selection
+
+        options.forEach(option => {
+            option.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                options.forEach(opt =>{
+                    opt.style.pointerEvents = 'none';
+                })
+
+                // Reset previous selection style
+                if (previousSelected) {
+                    previousSelected.style.backgroundColor = "";
+                    previousSelected.style.color = "";
+                }
+
+                // Mark new selection
+                option.style.backgroundColor = "#4F46E5"; // Indigo background
+                option.style.color = "white";
+
+                // Update tracker
+                previousSelected = option;
+
+                // Check answer
+                var selectedOption = option.innerText.trim().substring(3);
+                if (selectedOption == data[get].answer) {
+                    console.log("Correct Answer!");
+                    option.style.backgroundColor = "green";
+                    status.innerHTML = `<div class="dark:text-green-500 text-black text-4xl">Congrats..🥳</div>`;
+                   flag++;
+                    score++;
+                    console.log(score);
+                } else {
+                    console.log("Wrong Answer!");
+                    option.style.backgroundColor = "red";
+                     flag++;
+                    status.innerHTML = `<div class="text-red-500 text-4xl">Wrong❌! The correct answer is: ${data[get].answer}</div>`;
+                 
+                }
+            });
+        });
+
+    }
+     else {
+        ap.innerHTML = ` <div class="flex-col justify-center items-center z-10 text-gray-900 dark:text-white space-y-4 ">
+            <h1  class="text-5xl font-light text-center md:text-left leading-snug">Quiz Completed!<br><span class="text-indigo-500 font-bold dark:text-purple-400">You scored ${score}!</span></h1>
+            <button  onclick="location.reload()" class="py-2 px-4 bg-blue-500 text-white rounded m-[57px] md:m-0">
+    Restart Quiz
+</button>
+        </div>`;   document.getElementById('reloadBtn').addEventListener('click', () => {
+        location.reload();
+    });
+    }
+}
+    
+
+
+        toggleButton.addEventListener('change', () => {
+            html.classList.toggle('dark');
+          
+            
+        });
+       
+        choose.addEventListener('click', (event) => {
+            event.preventDefault();
+            // let quizChosen = event.target.id;
+           if(event.target.id === 'hquiz'){
+              selectedQuiz = htmlQuestions;
+        clutter(selectedQuiz);
+           }
+           else if(event.target.id === 'cquiz'){
+               selectedQuiz = cssQuestions;
+               clutter(selectedQuiz);
+           }
+           else if(event.target.id === 'jquiz'){
+               selectedQuiz = jsQuestions;
+               clutter(selectedQuiz);
+           }
+           else if(event.target.id === 'aquiz'){
+               selectedQuiz = accessibilityQuestions;
+               clutter(selectedQuiz);
+           }
+    });
+        
+    </script>
+
+</body>
+
+</html>
